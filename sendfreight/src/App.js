@@ -1,8 +1,13 @@
+import Home from '../src/pages/Home';
+import GlobalStyles from '../src/components/GlobalStyles';
+
 function App() {
 	return (
-		<div className='App'>
-			<h1>GOAT</h1>
-		</div>
+		<>
+			<GlobalStyles />
+
+			<Home />
+		</>
 	);
 }
 
