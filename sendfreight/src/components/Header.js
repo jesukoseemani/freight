@@ -2,20 +2,30 @@ import React from 'react';
 import styled from 'styled-components';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import { grey } from '@mui/material/colors';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 function Header() {
 	return (
 		<StyledHeader>
 			<LeftWrapper>
 				<div className='logo'>
 					{/* <img src='' /> */}
-					<h1>sendFreight</h1>
+					<h1>
+						send<span>Freight</span>
+					</h1>
 				</div>
 				<div className='input'>
 					<input type='text' placeholder='Search' />
 					<div className='icon_search'>
 						<SearchSharpIcon sx={{ color: grey[50], fontSize: 20 }} />
 					</div>
+				</div>
+				<div className='hamburger'>
+					<FontAwesomeIcon
+						className='box_icon box_icon-custom'
+						icon={faBars}
+						size='2x'
+					/>
 				</div>
 			</LeftWrapper>
 			<RightWrapper>
@@ -48,9 +58,18 @@ const LeftWrapper = styled.div`
 
 	.logo {
 		flex-basis: 30%;
+		color: white;
+		cursor: pointer;
 
 		h1 {
 			font-size: 2rem;
+			font-family: 'Aclonica', sans-serif;
+			@media (max-width: 520px) {
+				font-size: 1.3rem;
+			}
+		}
+		span {
+			font-family: 'Bai Jamjuree', sans-serif;
 		}
 	}
 
@@ -58,6 +77,14 @@ const LeftWrapper = styled.div`
 		flex-basis: 70%;
 		display: flex;
 		align-items: center;
+
+		@media (max-width: 780px) {
+			flex-basis: 50%;
+		}
+
+		@media (max-width: 520px) {
+			flex-basis: 45%;
+		}
 
 		input {
 			width: 100%;
@@ -78,6 +105,18 @@ const LeftWrapper = styled.div`
 			justify-content: center;
 		}
 	}
+
+	.hamburger {
+		display: none;
+		margin: 1.5rem;
+		color: white;
+		@media (max-width: 1000px) {
+			display: flex;
+		}
+		@media (max-width: 520px) {
+			margin: 0.5rem;
+		}
+	}
 `;
 
 const RightWrapper = styled.div`
@@ -85,6 +124,10 @@ const RightWrapper = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
+
+	@media (max-width: 1000px) {
+		display: none;
+	}
 
 	.boxes {
 		display: flex;
